@@ -54,12 +54,9 @@
          avatarUrl: "https://cdn.pixabay.com/photo/2015/07/15/06/42/man-845709_960_720.jpg"
       };
 
-      const element = getGreeting(user);
+      const element = <div><img src={user.avatarUrl}></img> <h1>{getGreeting(user)}</h1></div>;
       const root = ReactDOM.createRoot(document.getElementById("contentitem"));
       root.render(element);
-      const element1=<img src={user.avatarUrl}></img>;
-      const root1 = ReactDOM.createRoot(document.getElementById("content"));
-      root1.render(element1)
       /*const root = ReactDOM.createRoot(document.getElementById("contentitem"));
       root.render(<h2>Dawid Jachnicki!</h2>);*/
       const elementEmbed = (
