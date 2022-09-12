@@ -16,7 +16,7 @@
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.19.0/babel.min.js"
       integrity="sha512-g9FNDzZ0L1+NX84LEwshW1z3FXXTMZccijKm3c7GQGHP440YRJ5JN57OzrJvdHMEWazpbDyh21x/AaAq+gOmmw=="
-      crossorigin="anonymous
+      crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
   </head>
@@ -25,22 +25,24 @@
     <div id="content"></div>
     <div id="contentitem"></div>
     <div id="contentitem-embed"></div>
-    <div id="root"></div
+    <div id="root"></div>
     <script type="text/babel">
-      class Welcome extends React.Component {
-        render() {
-          return <h1>Cześć, {this.props.name}</h1>;
-        }
-      }
-      const element = <Welcome name="Sara" />;
+      function Welcome (props) {
+        return( 
+          <div> 
+            <h1>Cześć, {props.name}</h1><h1>masz lat:{props.age}</h1>
+          </div>
+        );}
+      const element = <Welcome name="Tomek" />;
+      const age = <Welcome age="20" />;
       const root = ReactDOM.createRoot(document.getElementById("root"));
       root.render(element);
       function App() {
         return (
           <div>
-            <Welcome name="Sara" />
-            <Welcome name="Cahal" />
-            <Welcome name="Edite" />
+            <Welcome name="Tomek" age="20"/>
+            <Welcome name="Bratan" age="20"/>
+            <Welcome name="Josef" age="20"/>
           </div>
         );
       }
