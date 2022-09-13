@@ -1,0 +1,5 @@
+.inputBlock{display:block;}
+.inputBlock:hover{cursor: pointer;}
+.kolor:hover{
+  background-color:rgba(107, 168, 238, 0.545);
+} 

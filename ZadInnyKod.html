@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.19.0/babel.min.js"
+      integrity="sha512-g9FNDzZ0L1+NX84LEwshW1z3FXXTMZccijKm3c7GQGHP440YRJ5JN57OzrJvdHMEWazpbDyh21x/AaAq+gOmmw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="page"></div>
+
+    <script type="text/babel">
+      class Display extends React.Component {
+        render() {
+          return (
+            <div>
+              <form onSubmit={submitter}>
+                <h2>Ilość kursów: {this.props.courses.length}</h2>
+                <ol>{coursesList}</ol>
+                <p>Nazwa uzytkownika: </p>
+                <input type="text" id="name" class="inputBlock form-control"/>
+                <p>Numer kursu: </p>
+                <p><input type="number" id="number" class="form-control" /></p>
+                <p><input type="submit" value="Zapisz sie " class="btn btn-primary "  /></p>
+              </form>
+            </div>
+          );
+        }
+      }
+      function submitter(e) {
+        e.preventDefault();
+        const name = document.getElementById("name");
+        console.log(name.value);
+        let number = document.getElementById("number").value;
+        if (number < 1 || number > courses.length) {
+          console.log("Takiego kursu nie ma");
+          return 0;
+        }
+
+        const listPos = parseInt(number);
+        console.log("Witaj " + name.value);
+        console.log(
+          "Zapisujesz sie na kurs " +courses[listPos - 1]
+        );
+      }
+      const root = ReactDOM.createRoot(document.getElementById("page"));
+      const courses = ["c#", "c++", "css"];
+      const coursesList = courses.map((data, index) => (
+        <li key={index}>{data}</li>
+      ));
+      root.render(<Display courses={coursesList} />);
+    </script>
+  </body>
+</html>
